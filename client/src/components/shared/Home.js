@@ -6,14 +6,16 @@ const Home = () => (
       <Divider hidden />
     <Header as="h3" textAlign="center">Covid Passport</Header>
 
-    <Button secondary size='big' icon labelPosition='right'>
+    <Container> Millions of Americans are being vaccinated against Covid-19 everyday -- Did you get yours?</Container>
+    <Divider hidden />
+    <Button standard size='big' icon labelPosition='right'>
         <Link to="/destinations" >
         View Destinations
         </Link>
         <Icon name='right arrow' />
       </Button>
       <Divider hidden />
-      <Button secondary size='big' icon labelPosition='right'>
+      <Button standard size='big' icon labelPosition='right'>
         <Link to="/destinations/1/vaccines" >
         Add vaccines
         </Link>
