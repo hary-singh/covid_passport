@@ -17,7 +17,7 @@ const Register = ({ handleRegister, history }) => {
   return (
     <Segment basic>
       <Header as='h1' textAlign='center'>Register</Header>
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Form.Input
           label="Email"
           required
@@ -40,7 +40,7 @@ const Register = ({ handleRegister, history }) => {
           label="Password Confirmation"
           required
           name='passwordConfirmation'
-          value={passwordConfirmation}
+          value={user.passwordConfirmation}
           placeholder='Password Confirmation'
           type='password'
           onChange={(e, { value }) => setUser({ ...user, passwordConfirmation: value })}
