@@ -8,6 +8,7 @@ import 'semantic-ui-css/semantic.min.css';
 import AuthProvider from './providers/AuthProvider';
 import { initMiddleware } from 'devise-axios';
 import DestProvider from './providers/DestProvider';
+import VaccineProvider from './providers/VaccineProvider';
 
 initMiddleware();
 
@@ -15,9 +16,11 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <DestProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <VaccineProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </VaccineProvider>
       </DestProvider>
     </AuthProvider>
   </React.StrictMode>,
