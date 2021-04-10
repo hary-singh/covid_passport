@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { AuthConsumer } from "../../providers/AuthProvider";
 import { Menu } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
+import { Menus } from './styledComponents';
 
 const Navbar = ({user, handleLogout, location, history }) => {
 
@@ -40,6 +41,13 @@ const Navbar = ({user, handleLogout, location, history }) => {
   return (
     <div>
       <Menu pointing secondary>
+      <Link to='/about'>
+              <Menu.Item
+                name='about'
+                id='about'
+                active={location.pathname === '/about'}
+              />
+            </Link>
         <Link to='/'>
           <Menu.Item
             name='home'

@@ -5,6 +5,7 @@ import DestinationForm from './DestinationForm';
 import Destination from  './Destination';
 import DestinationContext from '../../providers/DestProvider';
 import DestinationConsumer from '../../providers/DestProvider';
+import { Container, Divider, Header, Icon } from 'semantic-ui-react';
 const Destinations = () => {
 
   const [destinations, setDestinations] = useState([])
@@ -22,19 +23,34 @@ const Destinations = () => {
   const renderDestination = () =>{
    
     return(
-      <><h1> TEst </h1>
+      <>
+      
      { destinations.map(d => <>
         <Destination destination={d} />
-        <DestinationForm /> </>
+        <Divider hidden />
+        
+         </>
       )}</>)
       
   
   }
-  return( <>
-  <br /><br /><br /><br /><h1>Test</h1>
+  return( <Container textAlign='center'>
+    <Divider hidden />
+    <Divider horizontal>
+                <Header>
+                  <Icon name='paper plane' />
+                    View Existing Destinations
+                </Header>
+              </Divider>
   {renderDestination()}
-  </>
-
+  <Divider horizontal>
+                <Header>
+                  <Icon name='paper plane' />
+                    Create a new Destination
+                </Header>
+              </Divider>
+  <DestinationForm />
+  </Container>
 )}
 export default Destinations;
 // const ConnectedDestinations = (props) =>(

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header } from 'semantic-ui-react';
 import { DestinationConsumer } from '../../providers/DestProvider';
 const Destination = ({ destination }) => {
   const toggleForm = () => {
@@ -6,7 +7,7 @@ const Destination = ({ destination }) => {
     this.setState({ editing: !editing })
   }
   
-  const { editing } = this.state
+  
   return(
     <>
       Name: {destination.name}<br />

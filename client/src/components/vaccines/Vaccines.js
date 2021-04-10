@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { VaccineConsumer } from '../../providers/VaccineProvider';
+import { Container, Divider, Header, Icon} from 'semantic-ui-react';
+// import { Headers } from './styledComponents';
 
 import VaccineForm from './VaccineForm';
 const Vaccines = ({ destinationId, getAllVaccines}) => {
@@ -9,10 +11,16 @@ const Vaccines = ({ destinationId, getAllVaccines}) => {
   }, [])
 
   return(
-    <>
-      <h1>Vaccines page</h1>
-      <VaccineForm />
-    </>
+    <Container textAlign='center'>
+    <Divider hidden />
+    <Divider horizontal>
+      <Header>
+        <Icon name='syringe' />
+          Add a new Vaccine
+      </Header>
+    </Divider>
+    <VaccineForm />
+    </Container>
   )
 }
 

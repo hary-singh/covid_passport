@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import Footer from './components/shared/Footer';
 import Destinations from "./components/destinations/Destinations";
 import Vaccines from "./components/vaccines/Vaccines";
+import About from './components/shared/About';
 
 const App = () => (
   <>
@@ -21,6 +22,7 @@ const App = () => (
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <ProtectedRoute exact path="/destinations" component={Destinations} />
+          <ProtectedRoute exact path="/about" component={About} />
           <ProtectedRoute exact path="/destinations/:id/vaccines" component={Vaccines} />
           <Route component={NoMatch} />
         </Switch>
