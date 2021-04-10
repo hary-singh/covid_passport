@@ -4,11 +4,24 @@ export const DestinationContext = React.createContext();
 export const DestinationConsumer = DestinationContext.Consumer;
 const DestProvider = ({ children }) => {
   const [destinations, setDestinations] = useState([])
-  useEffect( () => {
+  
+  const getAllDestinations = () => {
     axios.get('/api/destinations')
-      .then( res => setDestinations(res.data))
+      .then( res => {setDestinations(res.data)
+      
+      console.log("destinations", res.data)
+      })
       .catch( err => console.log(err))
-  }, [])
+  }
+  
+  // useEffect( () => {
+  //   axios.get('/api/destinations')
+  //     .then( res => {setDestinations(res.data)
+      
+  //     console.log("destinations", res.data)
+  //     })
+  //     .catch( err => console.log(err))
+  // }, [])
   const addDestination = (destination) => {
     axios.post('/api/destinations', { destination })
       .then( res => {
@@ -40,6 +53,7 @@ const DestProvider = ({ children }) => {
       addDestination: addDestination,
       updateDestination: updateDestination,
       deleteDestination: deleteDestination,
+      getAllDestinations: getAllDestinations
     }}>
       { children }
     </DestinationContext.Provider>

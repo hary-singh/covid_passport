@@ -22,13 +22,13 @@ const VaccineForm = ({ addVaccine }) => {
       <Form.Input
         label='Desc'
         name='descs'
-        value={vaccine.descs}
+        value={vaccine.desc}
         onChange={(e, {value}) => setVaccine({...vaccine, descs: value})}
       />
       <Form.Input
         label='Make'
         name='makes'
-        value={vaccine.makes}
+        value={vaccine.make}
         onChange={(e, {value}) => setVaccine({...vaccine, makes: value})}
       />
       <Form.Button>Save</Form.Button>

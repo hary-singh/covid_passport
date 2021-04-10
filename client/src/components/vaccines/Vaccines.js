@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
+import { VaccineConsumer } from '../../providers/VaccineProvider';
 
 import VaccineForm from './VaccineForm';
-const Vaccines = ({ destinationId, match}) => {
+const Vaccines = ({ destinationId, getAllVaccines}) => {
   
-  
-
   useEffect( () => {
     getAllVaccines(destinationId)
   }, [])
@@ -16,7 +15,18 @@ const Vaccines = ({ destinationId, match}) => {
     </>
   )
 }
-export default Vaccines;
+
+const ConnectedVaccines = (props ) => (
+  
+  <VaccineConsumer>
+    { 
+      value => (
+        <Vaccines {...props} {...value} />
+      )
+    }
+  </VaccineConsumer>
+)
+export default ConnectedVaccines;
 
 
 
