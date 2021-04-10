@@ -8,13 +8,20 @@ const Navbar = ({user, handleLogout, location, history }) => {
 
   const rightNavItems = () => {
     if (user) {
-      return (
+      return (<>
+        <Link to='/'>
+          <Menu.Item
+            name='home'
+            id='home'
+            active={location.pathname === '/'}
+          />
+        </Link>
         <Menu.Menu position='right'>
           <Menu.Item
             name='logout'
             onClick={ () => handleLogout(history) }
           />
-        </Menu.Menu>
+        </Menu.Menu></>
       )
     } else {
       return (
@@ -48,13 +55,7 @@ const Navbar = ({user, handleLogout, location, history }) => {
                 active={location.pathname === '/about'}
               />
             </Link>
-        <Link to='/'>
-          <Menu.Item
-            name='home'
-            id='home'
-            active={location.pathname === '/'}
-          />
-        </Link>
+        
           { rightNavItems() }
       </Menu>
     </div>
