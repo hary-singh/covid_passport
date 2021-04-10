@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_160646) do
+ActiveRecord::Schema.define(version: 2021_04_10_170823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "destinations", force: :cascade do |t|
+    t.string "name"
+    t.text "notes"
+    t.string "reqs"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_destinations_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "city"
+    t.string "hours"
+    t.bigint "vaccine_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vaccine_id"], name: "index_locations_on_vaccine_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -45,4 +65,17 @@ ActiveRecord::Schema.define(version: 2021_04_10_160646) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  create_table "vaccines", force: :cascade do |t|
+    t.string "name"
+    t.string "desc"
+    t.string "make"
+    t.bigint "destination_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_id"], name: "index_vaccines_on_destination_id"
+  end
+
+  add_foreign_key "destinations", "users"
+  add_foreign_key "locations", "vaccines"
+  add_foreign_key "vaccines", "destinations"
 end
