@@ -1,6 +1,7 @@
 class Api::DestinationsController < ApplicationController
+  before_action :authenticate_user!
   def index
-    render json: current_user.destinations
+    render json: Destination.all
   end
 
   def create
